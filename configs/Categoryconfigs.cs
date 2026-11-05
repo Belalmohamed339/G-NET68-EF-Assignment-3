@@ -33,6 +33,13 @@ namespace G_NET68_EF_Assignment_3.configs
                 .WithOne(co => co.Category)
                 .HasForeignKey(co => co.CategoryId)
                 .OnDelete(DeleteBehavior.Restrict);
+            builder.HasData(
+            new Category { Id = 1, Name = "Programming", Description = "Software engineering and coding.", ParentCategoryId = null },
+            new Category { Id = 2, Name = "Backend", Description = "Server-side architecture and APIs.", ParentCategoryId = 1 },
+            new Category { Id = 3, Name = "ASP.NET Core", Description = "Modern C# web development with .NET.", ParentCategoryId = 2 },
+            new Category { Id = 4, Name = "Node.js", Description = "Backend JavaScript runtime environment.", ParentCategoryId = 2 },
+            new Category { Id = 5, Name = "Frontend", Description = "Client-side interfaces and web UI.", ParentCategoryId = 1 }
+        );
         }
     }
 }

@@ -31,11 +31,43 @@ namespace G_NET68_EF_Assignment_3.configs
             builder.Property(i => i.JoinedDate)
                 .IsRequired();
 
-            // 1-to-Many: Instructor to Courses
             builder.HasMany(i => i.Courses)
                 .WithOne(c => c.Instructor)
                 .HasForeignKey(c => c.InstructorId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+
+
+            builder.HasData(
+            new Instructor
+            {
+                Id = 1,
+                FullName = "Sarah Connor",
+                Email = "sarah.connor@example.com",
+                Bio = "Senior .NET Architect with 12 years of experience.",
+                JoinedDate = new DateTime(2021, 1, 15)
+            },
+            new Instructor
+            {
+                Id = 2,
+                FullName = "Michael Scott",
+                Email = "m.scott@example.com",
+                Bio = "Full-stack developer and cloud specialist.",
+                JoinedDate = new DateTime(2022, 5, 20)
+            },
+            new Instructor
+            {
+                Id = 3,
+                FullName = "Elena Rostova",
+                Email = "elena.rostova@example.com",
+                Bio = "Frontend engineer specializing in modern JS frameworks.",
+                JoinedDate = new DateTime(2023, 3, 10)
+            }
+            );
+            
         }
+
+
+
     }
 }
