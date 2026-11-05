@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace G_NET68_EF_Assignment_3.context
+namespace G_NET68_EF_Assignment_3.dbContext
 {
-    internal class AppDbcontext:DbContext
+    public class AppDbcontext: DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
