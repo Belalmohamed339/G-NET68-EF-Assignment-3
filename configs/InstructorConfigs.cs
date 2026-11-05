@@ -31,7 +31,6 @@ namespace G_NET68_EF_Assignment_3.configs
             builder.Property(i => i.JoinedDate)
                 .IsRequired();
 
-            // 1-to-Many: Instructor to Courses
             builder.HasMany(i => i.Courses)
                 .WithOne(c => c.Instructor)
                 .HasForeignKey(c => c.InstructorId)
